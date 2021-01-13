@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import { useState } from 'react/cjs/react.production.min'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function Todo() {
+
+    const [text, setText] = useState("")
+
+    function addText(event) {
+        let t = event.target.value
+        setText(t)
+    }
+
+    return(
+        <div id="container">
+            <h1>Todo</h1>
+            <form>
+                <input type="text" onChange={addText}></input>
+                <input type="submit" value="Add"></input>
+            </form>
+            <ul>
+                <li>{text}</li>
+            </ul>
+        </div>
+    )
 }
 
-export default App;
+export default Todo
