@@ -1,26 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
-import { useState } from 'react/cjs/react.production.min'
+import Item from './Item'
+import ListItem from "./List"
+import TodoForm from "./TodoForm"
 
 function Todo() {
 
-    const [text, setText] = useState("")
+    
+    const [items, setItems] = useState([])
 
-    function addText(event) {
-        let t = event.target.value
-        setText(t)
+    function onAddList(text) {
+
+        let item = new Item(text)
+
+        setItems([...items, item])
+    }
+
+    function onDeleteItem(item) {
+        let filteredItems = items.filter(listItem=> listItem.idItem !== item.idItem )
+        setItems(filteredItems)
     }
 
     return(
         <div id="container">
             <h1>Todo</h1>
-            <form>
-                <input type="text" onChange={addText}></input>
-                <input type="submit" value="Add"></input>
-            </form>
-            <ul>
-                <li>{text}</li>
-            </ul>
+            <TodoForm onAddList={onAddList}/>
+            <ListItem onDeleteItem={onDeleteItem} items={items}/>
         </div>
     )
 }
