@@ -24,7 +24,7 @@ Você pode rodar o comando yarn dev para iniciar o projeto, ou se preferir npm r
 <code> npm run dev</code>
 
 
-O app vai "startar" na porta 3000 já com hot reload da propria ferramenta, rodadando em modo dedenvolvimento.
+O app vai "startar" na porta 3000 já com hot reload da propria ferramenta, rodando em modo dedenvolvimento.
 
 Thanks for all!!!
 
